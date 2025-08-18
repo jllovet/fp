@@ -1,6 +1,16 @@
 package fp
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
+
+func ExampleId() {
+	x := Id(1)
+	fmt.Println(x)
+	// Output: 1
+
+}
 
 func TestId(t *testing.T) {
 	t.Run("Identity func returns input for int", func(t *testing.T) {
