@@ -48,4 +48,15 @@ func TestId(t *testing.T) {
 		want := 1
 		assertUnequal(t, got, want)
 	})
+	t.Run("Identity func applied to Identity func returns Identity func", func(t *testing.T) {
+		f := Id(Id[any])
+		g := Id[any]
+		// Function comparison is not allowed in Go, so we will need to compare the functions behavior.
+		// Maybe there is some unsafe.Pointer dark magic that can be done to determine whether they're equal.
+		// Note: A downside to this approach is that there might be some transformation to the original
+		// function that produces side effects which are not caught here.
+		got := f(1)
+		want := g(1)
+		assertEqual(t, got, want)
+	})
 }
