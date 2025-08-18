@@ -43,7 +43,7 @@ func TestId(t *testing.T) {
 		want := entity{}
 		assertEqual(t, got, want)
 	})
-	t.Run("Identity func does not modify object", func(t *testing.T) {
+	t.Run("Identity func does not modify argument", func(t *testing.T) {
 		got := Id(0)
 		want := 1
 		assertUnequal(t, got, want)
