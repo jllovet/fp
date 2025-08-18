@@ -1,6 +1,17 @@
 package fp
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
+
+func ExampleFilter() {
+	isEven := func(x int) bool { return x%2 == 0 }
+	ns := []int{1, 2, 3, 4, 5}
+	xs := Filter(isEven, ns)
+	fmt.Println(xs)
+	// Output: [2 4]
+}
 
 func TestFilter(t *testing.T) {
 	t.Run("Filter with trivial true func returns original slice", func(t *testing.T) {
