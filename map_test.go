@@ -2,8 +2,6 @@ package fp
 
 import (
 	"fmt"
-	"strconv"
-	"strings"
 	"testing"
 )
 
@@ -11,12 +9,8 @@ func ExampleMap() {
 	addOne := func(x int) int { return x + 1 }
 	ns := []int{0, 1, 2, 3}
 	xs := Map(addOne, ns)
-	xStrings := make([]string, len(xs))
-	for i, x := range xs {
-		xStrings[i] = strconv.Itoa(x)
-	}
-	fmt.Println(strings.Join(xStrings, ", "))
-	// Output: 1, 2, 3, 4
+	fmt.Println(xs)
+	// Output: [1 2 3 4]
 }
 
 func TestMap(t *testing.T) {
